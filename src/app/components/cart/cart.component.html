@@ -1,0 +1,34 @@
+<div class="col-md-12 card ml-2 mt-4">
+  <div class="card-header">
+    <h4 class="text-center text-uppercase" style="color:darkred">Cart  <i class="fa fa-gift" aria-hidden="true"></i></h4>
+  </div>
+  <div class="card-body">
+    <table cellpadding="10">
+      <thead class="font-weight-bold">
+        <tr *ngIf="getCartItems().length>0; else emptyCart">
+          <td>Name</td>
+          <td>Quantity</td>
+          <td></td>
+          <td>Price</td>
+        </tr>
+        <ng-template #emptyCart>
+          <span style="color:darkred">Your cart feels abandoned!</span>
+        </ng-template>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of getCartItems()">
+          <td>{{ item.name }}</td>
+          <td class="text-center">{{ item.quantity }}</td>
+          <td><i class="fa fa-times"></i></td>
+          <td>{{ item.price | currency:"INR":"symbol" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <h5 class="text-uppercase ml-2">
+      <span class="align-middle" style="color:olivedrab">Total:</span> <span class="font-weight-bold ml-3 align-middle">{{ cartService.totalAmount | currency:"INR":"symbol" }}</span>
+      <button *ngIf="getCartItems().length>0" class="btn btn-success float-right" routerLink="/contact">Proceed To Checkout <i class="fa fa-arrow-circle-o-right"></i></button>
+    </h5>
+  </div>
+</div>

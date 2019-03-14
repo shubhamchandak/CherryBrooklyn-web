@@ -1,0 +1,114 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link m-2" style="color:seagreen"><i class="fa fa-arrow-circle-o-left"></i> 
+    Back To Dashboard</a>
+  </div>
+</div>
+<div class="row container-fluid">
+  <div class="card col-md-6 offset-md-1">
+    <h5 class="card-header" style="background:mintcream">
+      Delivery Details
+    </h5>
+    <div class="card-body">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input 
+            type="text"
+            class="form-control"
+            name="name"
+            #userName="ngModel"
+            [ngClass]="{'is-invalid':userName.errors && userName.touched}"
+            [(ngModel)]="user.name"
+            minlength="2"
+            required
+          >
+          <div [hidden]="!userName.errors?.required" class="invalid-feedback">
+            Name is required
+          </div>
+          <div [hidden]="!userName.errors?.minlength" class="invalid-feedback">
+            Minimum 2 characters are required
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input 
+            type="text"
+            class="form-control"
+            name="lastName"
+            #clientLastName="ngModel"
+            [ngClass]="{'is-invalid':clientLastName.errors && clientLastName.touched}"
+            [(ngModel)]="client.lastName"
+            minlength="2"
+            required
+          >
+          <div [hidden]="!clientLastName.errors?.required" class="invalid-feedback">
+            Last Name required
+          </div>
+          <div [hidden]="!clientLastName.errors?.minlength" class="invalid-feedback">
+            Minimum 2 characters are required
+          </div>
+        </div> -->
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input 
+            type="text"
+            class="form-control"
+            name="phone"
+            #userPhone="ngModel"
+            [ngClass]="{'is-invalid':userPhone.errors && userPhone.touched}"
+            [(ngModel)]="user.phone"
+            minlength="10"
+            required
+          >
+          <div [hidden]="!userPhone.errors?.required" class="invalid-feedback">
+            Phone is required
+          </div>
+          <div [hidden]="!userPhone.errors?.minlength" class="invalid-feedback">
+            Must be at least 10 digits
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="text"
+            class="form-control"
+            name="email"
+            #userEmail="ngModel"
+            [ngClass]="{'is-invalid':userEmail.errors && userEmail.touched}"
+            [(ngModel)]="user.email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            required
+          >
+          <div [hidden]="!userEmail.errors?.required" class="invalid-feedback">
+            Email required
+          </div>
+          <div [hidden]="!userEmail.errors?.pattern" class="invalid-feedback">
+            Email is not valid
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input 
+            type="number"
+            class="form-control"
+            name="amount"
+            #userAmount="ngModel"
+            [(ngModel)]="user.amount"
+            [disabled]="disableAmountOnAdd"
+          >
+        </div>
+
+        <input type="submit" class="btn btn-success btn-block" value="Submit">
+
+      </form>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <app-invoice></app-invoice>
+  </div>
+</div>  

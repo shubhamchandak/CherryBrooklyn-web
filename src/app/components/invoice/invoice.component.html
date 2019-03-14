@@ -1,0 +1,56 @@
+<div class="card p-2" style="background:mintcream">
+<div class="col-md-12 mb-2">
+  <div>
+    <h4 class="text-center">Invoice</h4>
+  </div>
+  
+  
+</div>
+<div class="card mb-2">
+    <table cellpadding="10">
+      <thead class="font-weight-bold">
+        <tr *ngIf="getOrderItems().length>0">
+          <td>Name</td>
+          <td>Quantity</td>
+          <td></td>
+          <td>Price</td>
+        </tr>
+      <tbody>
+        <tr *ngFor="let item of getOrderItems()">
+          <td>{{ item.name }}</td>
+          <td class="text-center">{{ item.quantity }}</td>
+          <td><i class="fa fa-times"></i></td>
+          <td>{{ item.price | currency:"INR":"symbol" }}</td>
+        </tr>
+      </tbody>
+    </table>
+      <!-- <div class="card-footer"> -->
+    <!-- <h6 class="ml-2" style="display:block">
+      Total : <span class="font-weight-bold ml-3 text-center">{{ cartService.totalAmount | currency:"INR":"symbol" }}</span>
+    </h6>
+    <h6 class="ml-2" style="display:block">
+      Delivery Charges : <span class="font-weight-bold ml-3 text-center">{{ cartService.deliveryCharges | currency:"INR":"symbol" }}</span>
+    </h6> -->
+  <!-- </div> -->
+    
+  </div>
+<div>
+    <table cellpadding="5">
+      <tr>
+          <td> Total :</td>
+          <td>{{ cartService.totalAmount | currency:"INR":"symbol" }}</td>
+        </tr>
+        <tr>
+          <td> Delivery Charges :</td>
+          <td>{{ cartService.deliveryCharges | currency:"INR":"symbol" }}</td>
+        </tr>
+        <tr class="font-weight-bold">
+          <td> <h5>Total Net :</h5></td>
+          <td><h5>{{ cartService.deliveryCharges + cartService.totalAmount | currency:"INR":"symbol" }}</h5></td>
+        </tr>
+    </table>
+      <!-- <h6 class="ml-2" style="display:block">
+      Total Net : <span class="font-weight-bold ml-3 text-center">{{ cartService.deliveryCharges + cartService.totalAmount | currency:"INR":"symbol" }}</span>
+      </h6> -->
+    </div>
+</div>
