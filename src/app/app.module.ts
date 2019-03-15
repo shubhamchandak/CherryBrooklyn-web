@@ -14,6 +14,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { InvoiceComponent } from './components/invoice/invoice.component';
+import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
     CartComponent,
     HeaderComponent,
     ContactFormComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    OtpAuthComponent
   ],
   imports: [
     BrowserModule,

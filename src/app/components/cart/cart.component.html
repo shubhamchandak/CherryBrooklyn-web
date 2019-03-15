@@ -1,19 +1,22 @@
-<div class="col-md-12 card ml-2 mt-4">
+<div class="col-md-12 card ml-2">
   <div class="card-header">
     <h4 class="text-center text-uppercase" style="color:darkred">Cart  <i class="fa fa-gift" aria-hidden="true"></i></h4>
   </div>
   <div class="card-body">
+    <div *ngIf="getCartItems().length<1">
+      <div class="text-center font-weight-bold" style="color:darkred;">Your cart feels abandoned!</div>
+      <div>
+        <img src="https://dumielauxepices.net/sites/default/files/drawn-smiley-icon-573440-9992264.gif" style="width:150px;height:150px;margin-left: 120px;margin-bottom: -40px;">
+      </div>
+    </div>
     <table cellpadding="10">
       <thead class="font-weight-bold">
-        <tr *ngIf="getCartItems().length>0; else emptyCart">
+        <tr *ngIf="getCartItems().length>0">
           <td>Name</td>
           <td>Quantity</td>
           <td></td>
           <td>Price</td>
         </tr>
-        <ng-template #emptyCart>
-          <span style="color:darkred">Your cart feels abandoned!</span>
-        </ng-template>
       </thead>
       <tbody>
         <tr *ngFor="let item of getCartItems()">

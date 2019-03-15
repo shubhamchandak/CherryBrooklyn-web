@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="form-group col-md-4 mt-5">
+      <div class="card">
+        <div class="card-header text-center">
+          <h5>
+            Please Enter OTP <small>sent on 7076607737</small>
+            <!-- {{ orderService.currentOrder.phone }} -->
+          </h5>
+        </div>
+
+        <form #otpForm="ngForm" (ngSubmit)="onSubmit(otpForm)">
+        <div class="card-body">
+          <input 
+            type="number"
+            class="form-control"
+            name="otp-code"
+            #otpCode="ngModel"
+            [ngClass]="{'is-invalid':otpCode.errors && otpCode.touched}"
+            [(ngModel)]="otpItem.otpCode"
+            minlength="4"
+            maxlength="4"
+            required
+          >
+          <div [hidden]="!otpCode.errors?.required" class="invalid-feedback">
+            OTP is required
+          </div>
+          <div [hidden]="!otpCode.errors?.minlength" class="invalid-feedback">
+            Must be a four digit code
+          </div>
+          <div [hidden]="!otpCode.errors?.maxlength" class="invalid-feedback">
+            Must be a four digit code
+          </div>
+        </div>
+        
+        <div>
+          <input type="submit" [disabled]="otpDisabled" class="btn btn-success btn-block" value="Verify Phone">
+        </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="orderConfirm" class="col-md-6 offset-1 mt-5">
+      <div class="card">
+        <div class="card header" style="background:mintcream">
+          <h4 class="text-center display-4">
+            Order Confirmed!
+          </h4>
+        </div>
+        <div class="card-body text-center">
+          <h5 >
+            Now sit back and RELAX
+            <br>
+            </h5>
+            <div>
+              <img src="http://worldartsme.com/images/smile-black-and-white-clipart-1.jpg" style="width:200px;height:200px;margin: auto">
+            </div>
+            <h4>
+            <small>We are preparing your order and will deliver it within 30 minutes.</small>
+            </h4> 
+        </div>
+      </div>
+    </div>
+    <div *ngIf="orderPending" class="col-md-6 offset-1 mt-5">
+      <div class="card">
+        <div class="card header" style="background:mintcream">
+          <h4 class="text-center display-4">
+            Order Pending!
+          </h4>
+        </div>
+        <div class="card-body text-center">
+          <h5 >
+            Please verify your mobile number
+            <br>
+            </h5>
+            <div>
+              <img src="https://researchblog.iclon.nl/wp-content/uploads/2015/03/moderation-clipart-zyToK4GiE.jpeg" style="width:200px;height:200px;margin: auto">
+            </div>
+            <h4>
+            <small>OTP has been sent to your registered mobile number.</small>
+            </h4> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
