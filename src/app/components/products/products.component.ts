@@ -4,6 +4,7 @@ import { ProductService } from '../../services/product.service';
 import { Product } from 'src/app/models/product';
 import { OrderItem } from 'src/app/models/orderItem';
 import { CartService } from 'src/app/services/cart.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-products',
@@ -14,13 +15,15 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private loaderService: NgxUiLoaderService
   ) { }
 
   products: Product[] = [];
 
   ngOnInit() {
     if (this.productService.products.length === 0) {
+      this.loaderService.start();
       this.productService.getProducts().subscribe(data => {
         this.productService.products = data.product;
         this.productService.productCount = data.count;
@@ -34,6 +37,7 @@ export class ProductsComponent implements OnInit {
               price: x.price
             };
             this.cartService.orderItems.push(orderItem);
+            this.loaderService.stop();
           });
         }
       },

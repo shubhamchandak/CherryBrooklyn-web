@@ -13,8 +13,10 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
     HeaderComponent,
     ContactFormComponent,
     InvoiceComponent,
-    OtpAuthComponent
+    OtpAuthComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
     ButtonModule,
     FlashMessagesModule.forRoot(),
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxUiLoaderModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

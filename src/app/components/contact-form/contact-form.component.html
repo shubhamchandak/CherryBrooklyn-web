@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <a routerLink="/" class="btn btn-link m-2" style="color:seagreen"><i class="fa fa-arrow-circle-o-left"></i> 
+    <a routerLink="/order" class="btn btn-link m-2" style="color:seagreen"><i class="fa fa-arrow-circle-o-left"></i> 
     Back To Menu</a>
   </div>
 </div>
@@ -61,6 +61,7 @@
             [ngClass]="{'is-invalid':userPhone.errors && userPhone.touched}"
             [(ngModel)]="user.phone"
             minlength="10"
+            maxlength="10"
             required
           >
           <div [hidden]="!userPhone.errors?.required" class="invalid-feedback">

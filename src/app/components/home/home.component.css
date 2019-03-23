@@ -1,0 +1,20 @@
+#container {
+  position: relative;
+}
+#container canvas, #button {
+  position: absolute;
+}
+
+#button {
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 18px;
+}
+
+i {
+    display: inline;
+  margin-right: 10px;
+}

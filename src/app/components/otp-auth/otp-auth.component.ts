@@ -39,7 +39,9 @@ export class OtpAuthComponent implements OnInit {
           this.otpDisabled = true;
           this.orderConfirm = true;
           this.orderPending = false;
-          console.log(data);
+          // show flash-message
+        this.flashMessagesService.show('Order Confirmed!',
+        {cssClass: 'alert-success', timeout: 3000});
 
         },
         error => {

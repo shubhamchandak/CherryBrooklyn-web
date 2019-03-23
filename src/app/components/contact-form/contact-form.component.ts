@@ -5,6 +5,7 @@ import { Order } from 'src/app/models/order';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-contact-form',
@@ -17,7 +18,8 @@ export class ContactFormComponent implements OnInit {
     private flashMessagesService: FlashMessagesService,
     private cartService: CartService,
     private orderService: OrderService,
-    private router: Router
+    private router: Router,
+    private loaderService: NgxUiLoaderService
   ) { }
 
   user: Order = {
@@ -39,19 +41,22 @@ export class ContactFormComponent implements OnInit {
       this.flashMessagesService.show('Please fill details correctly!',
         {cssClass: 'alert-danger', timeout: 3000});
     } else {
+      this.loaderService.start();
       this.orderService.submitOrder(this.user).subscribe(x => {
-        // console.log(x);
-
         this.orderService.confirmOrderId = x._id;
+
+        // stop loader
+        this.loaderService.stop();
 
         // show flash-message
         this.flashMessagesService.show('Please verify your phone number!',
         {cssClass: 'alert-success', timeout: 3000});
+
         // redirect to otp
         this.router.navigate(['/confirm-order']);
       },
       err => {
-        console.log(err);
+        this.loaderService.stop();
         this.flashMessagesService.show('Error Occurred!',
         {cssClass: 'alert-danger', timeout: 3000});
       });

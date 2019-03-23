@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ProductsComponent } from './components/products/products.component';
 import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path: 'contact', component: ContactFormComponent},
-  {path: '', component: ProductsComponent},
+  {path: '', component: HomeComponent},
+  {path: 'order-details', component: ContactFormComponent},
+  {path: 'order', component: ProductsComponent},
   {path: 'confirm-order', component: OtpAuthComponent}
 ];
 
