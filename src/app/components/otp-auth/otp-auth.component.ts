@@ -14,6 +14,7 @@ export class OtpAuthComponent implements OnInit {
   otpDisabled: boolean;
   orderConfirm: boolean;
   orderPending: boolean;
+  phone: number;
 
   constructor(
     private orderService: OrderService,
@@ -29,6 +30,7 @@ export class OtpAuthComponent implements OnInit {
   ngOnInit() {
     this.otpDisabled = false;
     this.orderPending = true;
+    this.phone = this.orderService.currentOrder.phone;
   }
 
   onSubmit({value, valid}: {value: any, valid: boolean}) {
