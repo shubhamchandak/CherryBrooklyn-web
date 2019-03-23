@@ -1,17 +1,24 @@
 <div class="col-md-12 card ml-2">
   <div class="card-header">
-    <h4 class="text-center text-uppercase" style="color:darkred">Cart  <i class="fa fa-gift" aria-hidden="true"></i></h4>
+    <h4 class="text-center text-uppercase" style="color:darkred">
+      Cart <i class="fa fa-gift" aria-hidden="true"></i>
+    </h4>
   </div>
   <div class="card-body">
-    <div *ngIf="getCartItems().length<1">
-      <div class="text-center font-weight-bold" style="color:darkred;">Your cart feels abandoned!</div>
+    <div *ngIf="getCartItems().length < 1">
+      <div class="text-center font-weight-bold" style="color:darkred;">
+        Your cart feels abandoned!
+      </div>
       <div>
-        <img src="https://dumielauxepices.net/sites/default/files/drawn-smiley-icon-573440-9992264.gif" style="width:150px;height:150px;margin-left: 120px;margin-bottom: -40px;">
+        <img
+          src="https://dumielauxepices.net/sites/default/files/drawn-smiley-icon-573440-9992264.gif"
+          style="width:150px;height:150px;margin-left: 120px;margin-bottom: -40px;"
+        />
       </div>
     </div>
     <table cellpadding="10">
       <thead class="font-weight-bold">
-        <tr *ngIf="getCartItems().length>0">
+        <tr *ngIf="getCartItems().length > 0">
           <td>Name</td>
           <td>Quantity</td>
           <td></td>
@@ -23,15 +30,24 @@
           <td>{{ item.name }}</td>
           <td class="text-center">{{ item.quantity }}</td>
           <td><i class="fa fa-times"></i></td>
-          <td>{{ item.price | currency:"INR":"symbol" }}</td>
+          <td>{{ item.price | currency: "INR":"symbol" }}</td>
         </tr>
       </tbody>
     </table>
   </div>
   <div class="card-footer">
     <h5 class="text-uppercase ml-2">
-      <span class="align-middle" style="color:olivedrab">Total:</span> <span class="font-weight-bold ml-3 align-middle">{{ cartService.totalAmount | currency:"INR":"symbol" }}</span>
-      <button *ngIf="getCartItems().length>0" class="btn btn-success float-right" routerLink="/order-details">Proceed To Checkout <i class="fa fa-arrow-circle-o-right"></i></button>
+      <span class="align-middle" style="color:olivedrab">Total:</span>
+      <span class="font-weight-bold ml-3 align-middle">{{
+        getTotalAmount() | currency: "INR":"symbol"
+      }}</span>
+      <button
+        *ngIf="getCartItems().length > 0"
+        class="btn btn-success float-right"
+        routerLink="/order-details"
+      >
+        Proceed To Checkout <i class="fa fa-arrow-circle-o-right"></i>
+      </button>
     </h5>
   </div>
 </div>

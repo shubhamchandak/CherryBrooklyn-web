@@ -1,5 +1,4 @@
-<div">
-  <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-md-7 col-sm-12">
       <h3 class="m-3" style="color:seagreen">Order Now!</h3>
@@ -14,23 +13,28 @@
         <tbody>
           <tr *ngFor="let product of products">
             <td>{{ product.name }}</td>
-            <td>{{ product.price | currency:"INR":"symbol" }}</td>
+            <td>{{ product.price | currency: "INR":"symbol" }}</td>
             <td>
-              <button class="btn fa fa-minus" (click)="decrementQuantity(product._id)"></button>
-              {{ displayQuantity(product._id)  }}
-              <button class="btn fa fa-plus" (click)="incrementQuantity(product._id)"></button>
+              <button
+                class="btn fa fa-minus"
+                (click)="decrementQuantity(product._id)"
+              ></button>
+              {{ displayQuantity(product._id) }}
+              <button
+                class="btn fa fa-plus"
+                (click)="incrementQuantity(product._id)"
+              ></button>
             </td>
           </tr>
         </tbody>
       </table>
       <ng-template #noProducts>
-        <hr>
-        <h5>Fetching Cool Stuff...</h5>
+        <hr />
+        <h5>Fetching cool stuff...</h5>
       </ng-template>
     </div>
     <div class="col-md-5 mt-4">
       <app-cart></app-cart>
     </div>
   </div>
-  </div>
- </div> 
+</div>
