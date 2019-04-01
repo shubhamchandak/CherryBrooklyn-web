@@ -9,6 +9,7 @@ import { Product } from '../models/product';
 })
 export class ProductService {
   apiUrl = 'https://cherrybrooklyn-api.herokuapp.com/products';
+  // apiUrl = "http://localhost:3000/products";
   products: Product[] = [];
   productCount = 0;
 

@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     function init() {
       circleArray = [];
       let radius = 0;
-      for (let i = 0; i < 600; i++) {
+      for (let i = 0; i < 300; i++) {
         radius = Math.random() * 4 + 1;
         const x = Math.random() * (innerWidth - radius * 2) + radius;
         const y = Math.random() * (innerHeight - radius * 2) + radius;

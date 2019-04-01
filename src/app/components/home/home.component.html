@@ -1,15 +1,22 @@
-<div id="container">
-  <canvas [height]="browserWindow.innerHeight" [width]="browserWindow.innerWidth" #myCanvas></canvas>
-  <button id="button" routerLink="/order" class="btn btn-success col-md-2 col-centered offset-md-5">Order Now &nbsp;<i class="fa fa-arrow-circle-o-right"></i>
-  </button>
-  <h1 class="display-4 col-centered col-md-6 offset-md-3 pt-5" style="color:rgb(72, 79, 2);text-align: center">
-    Now Serving in IIT Kharagpur
-  </h1>
-  <h3 style="color:rgb(220, 100, 20); text-align: center" class="display-5 col-centered col-md-4 offset-md-4 pt-2">From 2:00 pm to 2:00 am</h3>
-  <img src="./assets/images/shake.png" alt="image" class="col-md-5 offset-md-1" style="height:480px">
+<div id="container" style="background: rgb(244, 251, 243)">
+  <canvas [height]="browserWindow.innerHeight" id="smallscreenhide" [width]="browserWindow.innerWidth" #myCanvas></canvas>
+  <button routerLink="/order" class="btn btn-success col-md-2 col-centered offset-md-5" id="smallscreenhide">Order Now &nbsp;<i class="fa fa-arrow-circle-o-right"></i>
+    </button>
+  <div>
+    <h1 class="display-4 col-centered col-md-6 offset-md-3 pt-5" style="color:rgb(72, 79, 2);text-align: center;">
+      Now Serving in IIT Kharagpur
+    </h1>
+    <h3 style="color:rgb(220, 100, 20); text-align: center; font-style: italic" class="display-5 col-centered col-md-4 offset-md-4 pt-2">From 2:00 pm to 2:00 am</h3>
+    <div  id="smallscreenshow"  style="text-align:center; margin: 30px">
+      <button routerLink="/order"class="btn btn-success">
+        Order Now &nbsp;<i class="fa fa-arrow-circle-o-right"></i>
+      </button>
+    </div> 
+  </div>
+  <img src="./assets/images/shake.png" id="smallscreenhide" alt="image" class="col-md-5 offset-md-1" style="height:480px;width: 420px; position: relative;">
 </div>
 
-<footer class="site-footer mt-3">
+<footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-7">
@@ -20,13 +27,13 @@
           <div class="col-xs-6 col-md-3">
             <h6>Flavors</h6>
             <ul class="footer-links">
-              <li>Broadway Butterscotch</li>
-              <li>Greenwich Chikoo</li>
-              <li>Manhattan Choco Banana</li>
-              <li>Mapleton Apple</li>
-              <li>Queens Strawberry</li>
-              <li>Wall Street Frappe</li>
-              <li>Woodhaven Papaya</li>
+              <li><a href="/order">Broadway Butterscotch</a></li>
+              <li><a href="/order">Greenwich Chikoo</a></li>
+              <li><a href="/order">Manhattan Choco Banana</a></li>
+              <li><a href="/order">Mapleton Apple</a></li>
+              <li><a href="/order">Queens Strawberry</a></li>
+              <li><a href="/order">Wall Street Frappe</a></li>
+              <li><a href="/order">Woodhaven Papaya</a></li>
             </ul>
           </div>
 
@@ -34,7 +41,7 @@
             <h6>Reach Us</h6>
             <ul class="footer-links">
               <li>Phone: <br>+919933887996</li>
-              <li>Email: <br>contact@cherrybrooklyn.com</li>
+              <li>Email: <br><a href="mailto:contact@cherrybrooklyn.com">contact@cherrybrooklyn.com</a></li>
               <li>Address: <br>24th Main, 2nd Phase, JP Nagar, Bengaluru, Karnataka - 560078</li>
             </ul>
           </div>

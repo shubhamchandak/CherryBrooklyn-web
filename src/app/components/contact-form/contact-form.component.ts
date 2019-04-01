@@ -20,8 +20,12 @@ export class ContactFormComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private loaderService: NgxUiLoaderService
-  ) { }
+  ) {
+    this.addresses = ['AZH', 'BCR', 'BRH', 'GOK', 'HJB', 'JCB', 'LBS', 'LLR', 'MBU', 'MMM', 'MS', 'MT',
+                     'NH', 'NIV', 'PAT', 'RK', 'RLB', 'RP', 'SAM', 'SNIG', 'VS', 'TECM', 'VSRC', 'ZH'];
+   }
 
+  addresses: any;
   user: Order = {
     items: this.cartService.orderItems.filter(x => x.quantity > 0),
     customerName: '',

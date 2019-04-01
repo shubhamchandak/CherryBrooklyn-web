@@ -10,7 +10,7 @@ import { OtpItem } from '../models/otp-item';
 })
 export class OrderService {
 
-   apiUrl = 'https://cherrybrooklyn-api.herokuapp.com/orders';
+  apiUrl = 'https://cherrybrooklyn-api.herokuapp.com/orders';
   // apiUrl = 'http://localhost:3000/orders';
   currentOrder: Order;
   confirmOrderId: any;
