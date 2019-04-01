@@ -3,3 +3,9 @@ input {
     border-right: none;
     border-top: none;
 }
+
+select {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
