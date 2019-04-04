@@ -1,9 +1,9 @@
-<img src="./assets/images/shake14.jpg" alt="image" style="position: absolute; width: 1550px; opacity: 0.6;">
+<img src="./assets/images/shake14.jpg" alt="image" style="position: fixed; height: 1200px; opacity: 0.6;">
 <div class="container">
   <div class="row">
     <div class="col-md-7 col-sm-12">
-      <h3 class="m-3" style="color:seagreen">Order Now!</h3>
-      <table *ngIf="products?.length > 0; else noProducts" class="table">
+      <h3 class="m-3" style="color:seagreen">Shakes</h3>
+      <table *ngIf="shakes?.length > 0; else noProducts" class="table">
         <thead>
           <tr>
             <th>Name</th>
@@ -12,8 +12,38 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products">
-            <td style="line-height: 40px; overflow: hidden">{{ product.name }} (350 ml)</td>
+          <tr *ngFor="let product of shakes">
+            <td style="line-height: 40px; overflow: hidden">{{ product.name }} <span class="smallscreenhide">(350 ml)</span></td>
+            <td>{{ product.price | currency: "INR":"symbol" }}</td>
+            <td *ngIf="product.status==1">
+              <button
+                class="btn fa fa-minus"
+                (click)="decrementQuantity(product._id)"
+              ></button>
+              {{ displayQuantity(product._id) }}
+              <button
+                class="btn fa fa-plus"
+                (click)="incrementQuantity(product._id)"
+              ></button>
+            </td>
+            <td *ngIf="product.status!=1">
+              <small style="font-style:italic">Currenty Unavailable</small>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 class="m-3" style="color:seagreen">Juices</h3>
+      <table *ngIf="juices?.length > 0; else noProducts" class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of juices">
+            <td style="line-height: 40px; overflow: hidden">{{ product.name }} <span class="smallscreenhide"> (350 ml)</span></td>
             <td>{{ product.price | currency: "INR":"symbol" }}</td>
             <td *ngIf="product.status==1">
               <button
