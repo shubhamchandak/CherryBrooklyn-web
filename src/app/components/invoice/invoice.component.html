@@ -1,7 +1,7 @@
 <div class="card p-2" style="background:mintcream">
   <div class="col-md-12 mb-2">
     <div>
-      <h4 class="text-center">Invoice</h4>
+      <h4 class="text-center">Order Summary</h4>
     </div>
   </div>
   <div class="card mb-2">
@@ -35,16 +35,16 @@
   </div>
   <div>
     <table cellpadding="5">
-      <tr>
+      <!-- <tr>
         <td>Total :</td>
         <td>{{ totalAmount | currency: "INR":"symbol" }}</td>
-      </tr>
-      <tr>
+      </tr> -->
+      <!-- <tr>
         <td>Delivery Charges :</td>
         <td>{{ deliveryCharges | currency: "INR":"symbol" }}</td>
-      </tr>
+      </tr> -->
       <tr class="font-weight-bold">
-        <td><h5>Total Net :</h5></td>
+        <td><h5>Total :</h5></td>
         <td>
           <h5>
             {{ deliveryCharges + totalAmount | currency: "INR":"symbol" }}

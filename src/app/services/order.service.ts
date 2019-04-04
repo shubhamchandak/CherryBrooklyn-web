@@ -14,6 +14,7 @@ export class OrderService {
   // apiUrl = 'http://localhost:3000/orders';
   currentOrder: Order;
   confirmOrderId: any;
+  orderStatus: Number = 1;
 
   constructor(
     private httpClient: HttpClient
@@ -33,5 +34,9 @@ export class OrderService {
 
   updateOrderStatus(otpItem: OtpItem): Observable<any> {
     return this.httpClient.patch<any>(this.apiUrl + `/${otpItem.orderId}`, { otpItem }, this.httpOptions);
+  }
+
+  getOrderDetails(_id): Observable<any> {
+    return this.httpClient.get<any>(this.apiUrl + `/${_id}`, this.httpOptions);
   }
 }
