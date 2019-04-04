@@ -21,8 +21,8 @@ export class ContactFormComponent implements OnInit {
     private router: Router,
     private loaderService: NgxUiLoaderService
   ) {
-    this.addresses = ['AZH', 'BCR', 'BRH', 'GOK', 'HJB', 'JCB', 'LBS', 'LLR', 'MBU', 'MMM', 'MS', 'MT',
-                     'NH', 'NIV', 'PAT', 'RK', 'RLB', 'RP', 'SAM', 'SNIG', 'VS', 'TECM', 'VSRC', 'ZH'];
+    this.addresses = ['AZAD', 'BC ROY HALL', 'BC ROY HOSPITAL', 'BRH', 'GOKHLE', 'GYMKHANA', 'HJB', 'JCB', 'LBS', 'LLR', 'MAIN BUILDING', 'MMM', 'MS', 'MT',
+                     'NEHRU', 'NIVEDITA', 'PATEL', 'PROFESSORS COLONY', 'RK', 'RLB', 'RP', 'SAM', 'SN/IG', 'STAFF COLONY', 'TECH-M', 'VS', 'VSRC', 'ZAKIR HUSSAIN'];
    }
 
   addresses: any;
@@ -36,7 +36,7 @@ export class ContactFormComponent implements OnInit {
   paymentOption: string;
 
   ngOnInit() {
-    this.paymentOption = 'Cash On Delivery';
+    this.paymentOption = 'Cash On Delivery / Paytm / Google Pay';
   }
 
   onSubmit({value, valid}: {value: Order, valid: boolean}) {

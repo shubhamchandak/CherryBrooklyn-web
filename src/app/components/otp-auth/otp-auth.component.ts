@@ -3,6 +3,7 @@ import { OrderService } from 'src/app/services/order.service';
 import { OtpItem } from '../../models/otp-item';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-otp-auth',
@@ -14,12 +15,18 @@ export class OtpAuthComponent implements OnInit {
   otpDisabled: boolean;
   orderConfirm: boolean;
   orderPending: boolean;
-  phone: number;
+  phone: Number;
+  orderStatus: Number = 1;
+  totalAmount: any;
+  deliveryCharges: any;
+  discountAmount: any;
+  orderItems: any = [];
 
   constructor(
     private orderService: OrderService,
     private flashMessagesService: FlashMessagesService,
-    private loaderService: NgxUiLoaderService
+    private loaderService: NgxUiLoaderService,
+    private router: Router
   ) { }
 
   otpItem: OtpItem = {
@@ -28,9 +35,27 @@ export class OtpAuthComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.otpDisabled = false;
-    this.orderPending = true;
-    this.phone = this.orderService.currentOrder.phone;
+    this.orderStatus = this.orderService.orderStatus;
+    this.deliveryCharges = 0;
+    this.loaderService.start();
+    this.getOrderDetails(this.otpItem.orderId);
+  }
+
+  getOrderDetails(id) {
+    this.orderService.getOrderDetails(id).subscribe(
+      data => {
+          this.discountAmount = data.order.discount;
+          this.totalAmount = data.order.netAmount;
+          this.orderItems = data.order.items;
+          this.phone = data.order.phone;
+          this.loaderService.stop();
+      },
+      error => {
+        this.flashMessagesService.show('Error occurred! Please try again',
+        {cssClass: 'alert-danger', timeout: 3000});
+        this.loaderService.stop();
+      }
+    );
   }
 
   onSubmit({value, valid}: {value: any, valid: boolean}) {
@@ -41,13 +66,13 @@ export class OtpAuthComponent implements OnInit {
       this.loaderService.start();
       this.orderService.updateOrderStatus(this.otpItem).subscribe(
         data => {
-          this.otpDisabled = true;
-          this.orderConfirm = true;
-          this.orderPending = false;
+          this.orderService.orderStatus = 2;
+          this.orderStatus = this.orderService.orderStatus;
           this.loaderService.stop();
           // show flash-message
-        this.flashMessagesService.show('Order Confirmed!',
-        {cssClass: 'alert-success', timeout: 3000});
+          this.flashMessagesService.show('Order Confirmed!',
+          {cssClass: 'alert-success', timeout: 3000});
+          this.router.navigate(['/order-summary', this.otpItem.orderId]);
 
         },
         error => {

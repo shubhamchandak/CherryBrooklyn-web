@@ -63,6 +63,7 @@
             [(ngModel)]="user.phone"
             minlength="10"
             maxlength="10"
+            pattern="^\d+$"
             required
           >
           <div [hidden]="!userPhone.errors?.required" class="invalid-feedback">
@@ -70,6 +71,9 @@
           </div>
           <div [hidden]="!userPhone.errors?.minlength" class="invalid-feedback">
             Must be at least 10 digits
+          </div>
+          <div [hidden]="!userPhone.errors?.pattern" class="invalid-feedback">
+            Phone should only contain numbers
           </div>
         </div>
 
@@ -107,7 +111,7 @@
             required
           >
             <option style="display:none">select a category</option>
-            <option *ngFor="let item of addresses" [ngValue]="item" value="item">{{item}}</option>
+            <option *ngFor="let item of addresses" [ngValue]="item">{{item}}</option>
           </select>
           <div [hidden]="!userAddress.errors?.required" class="invalid-feedback">
             Address is required

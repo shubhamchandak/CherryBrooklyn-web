@@ -12,7 +12,8 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+  shakes: any = [];
+  juices: any = [];
   constructor(
     private productService: ProductService,
     private cartService: CartService,
@@ -26,6 +27,8 @@ export class ProductsComponent implements OnInit {
       this.loaderService.start();
       this.productService.getProducts().subscribe(data => {
         this.productService.products = data.product;
+        this.shakes = data.product.filter(a => a.type === 1);
+        this.juices = data.product.filter(b => b.type === 2);
         this.productService.productCount = data.count;
         this.products = this.productService.products;
         if (this.products.length > 0) {

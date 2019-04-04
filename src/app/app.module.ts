@@ -17,6 +17,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
 import { HomeComponent } from './components/home/home.component';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeComponent } from './components/home/home.component';
     ContactFormComponent,
     InvoiceComponent,
     OtpAuthComponent,
-    HomeComponent
+    HomeComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
