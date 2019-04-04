@@ -36,7 +36,7 @@ export class ContactFormComponent implements OnInit {
   paymentOption: string;
 
   ngOnInit() {
-    this.paymentOption = 'Cash On Delivery';
+    this.paymentOption = 'Cash On Delivery / Paytm / Google Pay';
   }
 
   onSubmit({value, valid}: {value: Order, valid: boolean}) {
