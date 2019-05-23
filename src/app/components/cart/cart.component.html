@@ -1,10 +1,10 @@
-<div class="col-md-10 offset-md-1 card ml-2 mt-3">
+<!-- <div class="col-md-10 offset-md-1 card ml-2 mt-3">
   <div class="card-header">
     <h4 class="text-center text-uppercase" style="color:darkred">
       Cart <i class="fa fa-gift" aria-hidden="true"></i>
     </h4>
   </div>
-  <div class="card-body">
+  <div class="card-body scrollable-content">
     <div *ngIf="getCartItems().length < 1">
       <div class="text-center font-weight-bold" style="color:darkred;">
         Your cart feels abandoned!
@@ -39,7 +39,7 @@
     <h5 class="text-uppercase ml-2">
       <span class="align-middle" style="color:olivedrab">Total:</span>
       <span class="font-weight-bold ml-3 align-middle">{{
-        getTotalAmount() | currency: "INR":"symbol"
+        getTotalAmount() | currency: 'INR' : 'symbol' : '1.1'
       }}</span>
       <button
         *ngIf="getCartItems().length > 0"
@@ -50,4 +50,42 @@
       </button>
     </h5>
   </div>
+</div> -->
+
+<div class="row">
+ <div class="col-md-10">
+  <div class="col-md-12 cart-header">
+    <div class="row container"> 
+      <div class="col-md-12">Cart</div>
+    </div>
+  </div>
+
+  <div class="col-md-12 cart-scroll">
+    <div class="row container p-2 cart-item" *ngFor="let item of getCartItems()">
+      <div class="col-8 col-md-8">
+        {{ item.name }}
+      </div>
+      <div class="col-2 col-md-2">
+        {{ item.quantity }}
+      </div>
+      <div class="col-2 col-md-2 text-right pr-0">
+        {{ item.price * item.quantity | currency: 'INR' : 'symbol' : '1.1'}}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 mt-3">
+    <div class="row container pr-0">
+      <!-- <div class="col-12"> -->
+        <div class="col-8 subtotal">
+          Subtotal
+        </div>
+        <div class="col-4 text-right pr-0 font-weight-bold">
+          {{ (getTotalAmount() > 0 ? getTotalAmount() : 0) | currency: 'INR' : 'symbol' : '1.1' }}
+        </div>
+      <!-- </div> -->
+    </div>
+    <input type="button" [disabled]="!(getTotalAmount() > 0)" class="btn btn-success col-11 mt-3 ml-3" routerLink="/order-details" value="CHECKOUT  →"/>
+  </div>
+ </div>
+
 </div>

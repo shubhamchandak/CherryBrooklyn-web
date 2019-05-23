@@ -1,0 +1,60 @@
+
+tbody {
+    display:block;
+    max-height:150px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;/* even columns width , fix width of table too*/
+}
+thead tr td:first-child, tbody tr td:first-child {
+    width: 41.66%;
+}
+
+thead tr td:nth-child(2), tbody tr td:nth-child(2) {
+    width: 27%;
+}
+
+ thead tr td:nth-child(3), tbody tr td:nth-child(3) {
+    width: 8.34%;
+}
+
+thead tr td:nth-child(4), tbody tr td:nth-child(4) {
+    width: 23%;
+} 
+
+
+.cart-header {
+    font-size: 32px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    font-family: montserrat;
+}
+
+.subtotal {
+    font-family: montserrat;
+    font-weight: bold;
+}
+
+input:hover {
+    box-shadow: 0 2px 8px #d4d5d9;
+}
+
+input:focus {
+    outline: none;
+}
+
+input {
+    height: 50px;
+}
+
+.cart-item {
+    padding-left: 1em !important;
+}
+
+.cart-scroll {
+    max-height: 200px;
+    overflow-y: auto;
+}

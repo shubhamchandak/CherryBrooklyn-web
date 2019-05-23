@@ -21,6 +21,7 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
 import { ItemComponent } from './components/item/item.component';
 import { ItemContainerComponent } from './components/item-container/item-container.component';
 import { ButtonComponent } from './components/button/button.component';
+import { SidebarComponent } from './components/item-container/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ButtonComponent } from './components/button/button.component';
     OrderSummaryComponent,
     ItemComponent,
     ItemContainerComponent,
-    ButtonComponent
+    ButtonComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

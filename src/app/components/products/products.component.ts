@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
               name: x.name,
               price: x.price,
               status: x.status,
-              type: x.status
+              type: x.type
             };
             this.cartService.orderItems.push(orderItem);
             this.loaderService.stop();
@@ -49,6 +49,7 @@ export class ProductsComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.loaderService.stop();
       });
     }
     this.products = this.productService.products;

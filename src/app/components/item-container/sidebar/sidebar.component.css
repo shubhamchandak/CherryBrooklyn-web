@@ -1,0 +1,52 @@
+.category-item {
+    font-family: montserrat;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-left: 10%;
+}
+
+.category-item:hover {
+    opacity: 0.8;
+    color: white;
+    font-style: italic;
+}
+
+.category-item:focus {
+    background-color: aqua;
+}
+
+#milkshakes {
+    background-color: #49beb7;
+}
+
+#fruitjuices {
+    background-color: #facf5a;
+}
+
+#mojitos {
+    background-color: #ff5959;
+}
+
+.category-wrapper {
+    margin: 10px;
+    width: 85%;
+}
+
+@media only screen and (max-width: 767px) {
+    .category-item {
+        margin: 0px;
+        padding: 10px;
+        border-radius: 0px;
+        cursor: pointer;
+        text-align: center;
+        /* padding-left: 0%; */
+    }
+
+    .category-wrapper {
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+    }
+}
