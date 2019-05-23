@@ -1,0 +1,16 @@
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.non-header {
+    margin-top: 100px;
+}
+
+@media only screen and (max-width: 767px) { 
+  .non-header {
+    margin-top: 145px;
+}
+}

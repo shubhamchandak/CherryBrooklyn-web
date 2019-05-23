@@ -9,9 +9,9 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
 import { ItemContainerComponent } from './components/item-container/item-container.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  // {path: '', component: HomeComponent},
   {path: 'order-details', component: ContactFormComponent},
-  {path: 'order', component: ItemContainerComponent},
+  {path: '', component: ItemContainerComponent},
   {path: 'confirm-order', component: OtpAuthComponent},
   {path: 'order-summary/:id', component: OrderSummaryComponent}
 ];
