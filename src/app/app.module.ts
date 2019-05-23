@@ -18,6 +18,9 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
 import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
 import { HomeComponent } from './components/home/home.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { ItemComponent } from './components/item/item.component';
+import { ItemContainerComponent } from './components/item-container/item-container.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
     InvoiceComponent,
     OtpAuthComponent,
     HomeComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    ItemComponent,
+    ItemContainerComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

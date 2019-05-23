@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-between align-items-center item-wrapper pt-3 pb-3">
+    <div class= "d-flex flex-column">
+       <div class="item-name">
+           {{item.name}}
+       </div>
+
+       <div class="item-price">
+           {{item.price | currency: 'INR'}}
+       </div>
+    </div>
+
+    <div>
+        <app-button [orderCounter]="item.quantity" (orderCountChangedEvent)= "orderCountChanged($event)"></app-button>
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Product } from '../models/product';
+import { IItem } from '../interfaces/IItem';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Product } from '../models/product';
 export class ProductService {
   apiUrl = 'https://cherrybrooklyn-api.herokuapp.com/products';
   // apiUrl = "http://localhost:3000/products";
-  products: Product[] = [];
+  products: IItem[] = [];
   productCount = 0;
 
   constructor(private httpClient: HttpClient) { }

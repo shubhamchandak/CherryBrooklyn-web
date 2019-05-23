@@ -1,0 +1,14 @@
+.item-wrapper{
+    font-family: montserrat;
+    border-bottom: 1px solid #e9e9eb;
+}
+
+.item-name{
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.item-price{
+    padding-top: 5px;
+    font-size: 14px;
+}

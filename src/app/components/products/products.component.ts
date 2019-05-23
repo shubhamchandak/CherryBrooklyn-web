@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product';
 import { OrderItem } from 'src/app/models/orderItem';
 import { CartService } from 'src/app/services/cart.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { IItem } from 'src/app/interfaces/IItem';
 
 @Component({
   selector: 'app-products',
@@ -20,7 +21,7 @@ export class ProductsComponent implements OnInit {
     private loaderService: NgxUiLoaderService
   ) { }
 
-  products: Product[] = [];
+  products: IItem[] = [];
 
   ngOnInit() {
     if (this.productService.products.length === 0) {
@@ -33,11 +34,13 @@ export class ProductsComponent implements OnInit {
         this.products = this.productService.products;
         if (this.products.length > 0) {
           this.products.map(x => {
-            const orderItem: OrderItem = {
-              productId: x._id,
+            const orderItem: IItem = {
+              _id: x._id,
               quantity: 0,
               name: x.name,
-              price: x.price
+              price: x.price,
+              status: x.status,
+              type: x.status
             };
             this.cartService.orderItems.push(orderItem);
             this.loaderService.stop();
@@ -53,7 +56,7 @@ export class ProductsComponent implements OnInit {
 
   incrementQuantity(productId) {
     this.cartService.orderItems.map(x => {
-      if (x.productId === productId) {
+      if (x._id === productId) {
         x.quantity++;
         this.cartService.updateTotalAmount();
       }
@@ -63,7 +66,7 @@ export class ProductsComponent implements OnInit {
 
   decrementQuantity(productId) {
     this.cartService.orderItems.map(x => {
-      if (x.productId === productId) {
+      if (x._id === productId) {
         if (x.quantity > 0) {
           x.quantity--;
           this.cartService.updateTotalAmount();
@@ -73,7 +76,7 @@ export class ProductsComponent implements OnInit {
   }
 
   displayQuantity(productId) {
-    const index = this.cartService.orderItems.findIndex(x => x.productId === productId);
+    const index = this.cartService.orderItems.findIndex(x => x._id === productId);
     return this.cartService.orderItems[index].quantity;
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { OrderItem } from "../../models/orderItem";
 import { CartService } from "src/app/services/cart.service";
+import { IItem } from 'src/app/interfaces/IItem';
 
 @Component({
   selector: "app-invoice",
@@ -15,7 +16,7 @@ export class InvoiceComponent implements OnInit {
 
   ngOnInit() {}
 
-  getOrderItems(): OrderItem[] {
+  getOrderItems(): IItem[] {
     return this.cartService.orderItems.filter(x => x.quantity > 0);
   }
 }

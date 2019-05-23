@@ -6,11 +6,12 @@ import { ProductsComponent } from './components/products/products.component';
 import { OtpAuthComponent } from './components/otp-auth/otp-auth.component';
 import { HomeComponent } from './components/home/home.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { ItemContainerComponent } from './components/item-container/item-container.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'order-details', component: ContactFormComponent},
-  {path: 'order', component: ProductsComponent},
+  {path: 'order', component: ItemContainerComponent},
   {path: 'confirm-order', component: OtpAuthComponent},
   {path: 'order-summary/:id', component: OrderSummaryComponent}
 ];

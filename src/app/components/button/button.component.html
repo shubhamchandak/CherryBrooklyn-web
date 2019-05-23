@@ -1,0 +1,25 @@
+<div class="button-wrapper">
+    <div *ngIf= "orderCounter === undefined || orderCounter <= 0; else orderCount" class="button text-center" (click)="updateOrderCount(true)">
+        Add
+    </div>
+
+    <ng-template #orderCount>
+        <div class="d-flex justify-content-between order-count align-items-center">
+
+        <div class="remove" (click)= "updateOrderCount(false)">
+            -
+        </div>
+
+        <div>
+            {{orderCounter}}
+        </div>
+       
+
+        <div class="add" (click)="updateOrderCount(true)">
+            +
+        </div>
+    </div>    
+    </ng-template>
+
+    
+</div>
