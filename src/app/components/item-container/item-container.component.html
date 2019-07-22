@@ -1,38 +1,42 @@
-
-
-
 <!-- <div class="container"> -->
-    <div class="row">
-        <div class="col-md-3" style="z-index: 2">
-            <app-sidebar [(type)]="displayType" class="sidebar-display"></app-sidebar>
-        </div>
+<div class="row">
+  <div class="col-md-3" style="z-index: 2">
+    <app-sidebar [(type)]="displayType" class="sidebar-display"></app-sidebar>
+  </div>
 
-        <div class="col-md-5 smallscreendisplay">
-            <div *ngIf="displayType==1" class="category-type" id="milkshakes">
-                <h4>Milkshakes</h4>
-                <hr class="mb-0">
-                <div *ngFor="let item of items">
-                    <app-item *ngIf="item.type==1" [item]= "item"></app-item>
-                </div>
-            </div>
-            <div *ngIf="displayType==2" class="category-type">
-                <h4>Fruit Juices</h4>
-                <hr class="mb-0">
-                <div *ngFor="let item of items">
-                    <app-item *ngIf="item.type==2" [item]= "item"></app-item>
-                </div>
-            </div>
-            <div *ngIf="displayType==3" class="category-type">
-                <h4>Mojitos</h4>
-                <hr class="mb-0">
-                <div *ngFor="let item of items">
-                    <app-item *ngIf="item.type==3" [item]= "item"></app-item>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 cart-position">
-            <app-cart></app-cart>
-        </div>
+  <div class="col-md-5 smallscreendisplay">
+    <div *ngIf="displayType == 1" class="category-type" id="milkshakes">
+      <h4>Milkshakes</h4>
+      <hr class="mb-0" />
+      <div *ngFor="let item of items">
+        <app-item *ngIf="item.type == 1" [item]="item"></app-item>
+      </div>
     </div>
+    <div *ngIf="displayType == 2" class="category-type">
+      <h4>Fruit Juices</h4>
+      <hr class="mb-0" />
+      <div *ngFor="let item of items">
+        <app-item *ngIf="item.type == 2" [item]="item"></app-item>
+      </div>
+    </div>
+    <div *ngIf="displayType == 3" class="category-type">
+      <h4>Mojitos</h4>
+      <hr class="mb-0" />
+      <div *ngFor="let item of items">
+        <app-item *ngIf="item.type == 3" [item]="item"></app-item>
+      </div>
+    </div>
+    <div *ngIf="displayType == 4" class="category-type">
+      <h4>Health Bites</h4>
+      <hr class="mb-0" />
+      <div *ngFor="let item of items">
+        <app-item *ngIf="item.type == 4" [item]="item"></app-item>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 cart-position">
+    <app-cart></app-cart>
+  </div>
+</div>
 <!-- </div> -->
