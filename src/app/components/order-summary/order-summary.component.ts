@@ -41,6 +41,7 @@ export class OrderSummaryComponent implements OnInit {
         this.finalAmount = data.order.finalAmount;
         this.customerName = data.order.customerName;
         this.orderItems = data.order.items;
+        this.deliveryCharges = data.order.deliveryCharges ? data.order.deliveryCharges : 0;
       },
       error => {
         this.loaderService.stop();

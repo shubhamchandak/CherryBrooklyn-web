@@ -5,4 +5,5 @@ export interface IItem {
     status: number;
     _id: any;
     quantity: number;
+    discount: number;
 }

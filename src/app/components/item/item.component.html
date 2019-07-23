@@ -5,7 +5,7 @@
        </div>
 
        <div class="item-price">
-           {{item.price | currency: 'INR'}}
+           <s *ngIf="item.discount > 0"> {{ item.discount + item.price | currency: 'INR' }} </s>&nbsp;&nbsp;{{ item.price | currency: 'INR'}}
        </div>
     </div>
 
