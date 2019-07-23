@@ -40,7 +40,8 @@ export class ProductsComponent implements OnInit {
               name: x.name,
               price: x.price,
               status: x.status,
-              type: x.type
+              type: x.type,
+              discount: x.discount
             };
             this.cartService.orderItems.push(orderItem);
             this.loaderService.stop();

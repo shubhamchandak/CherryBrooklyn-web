@@ -48,6 +48,7 @@ export class OtpAuthComponent implements OnInit {
           this.totalAmount = data.order.netAmount;
           this.orderItems = data.order.items;
           this.phone = data.order.phone;
+          this.deliveryCharges = data.order.deliveryCharges;
           this.loaderService.stop();
       },
       error => {

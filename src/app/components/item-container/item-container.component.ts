@@ -25,7 +25,7 @@ export class ItemContainerComponent implements OnInit {
             this.loaderService.start();
             this.productService.getProducts().subscribe(
                 (data: {count: number, product: IItem[]}) => {
-                    this.productService.products = data.product;
+                    this.productService.products = data.product.sort((a: IItem, b: IItem) => a.price - b.price);
                     this.items = this.productService.products;
                     this.loaderService.stop();
                 },
