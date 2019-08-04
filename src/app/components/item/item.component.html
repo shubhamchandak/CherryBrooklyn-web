@@ -7,6 +7,7 @@
        <div class="item-price">
            <s *ngIf="item.discount > 0"> {{ item.discount + item.price | currency: 'INR' }} </s>&nbsp;&nbsp;{{ item.price | currency: 'INR'}}
        </div>
+       <span style="font-size: 11px; color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Special Price* - {{ (item.discount + item.price)/2 | currency: 'INR' }}</span>
     </div>
 
     <div>
